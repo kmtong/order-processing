@@ -8,18 +8,10 @@
       <version>1.0.0</version>
   </parent>
 
-  <artifactId>salesplatform</artifactId>
+  <artifactId>model</artifactId>
   <packaging>bundle</packaging>
-  <name>Sales Platform API Bundle</name>
+  <name>Order Processing Shared Model Bundle</name>
   <inceptionYear>2013</inceptionYear>
-
-  <dependencies>
-      <dependency>
-          <groupId>com.cwbase</groupId>
-          <artifactId>model</artifactId>
-          <version>1.0.0</version>
-      </dependency>
-  </dependencies>
   <build>
     <plugins>
         <plugin>

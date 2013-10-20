@@ -21,6 +21,7 @@
   </developers>
 
   <modules>
+    <module>model</module>
     <module>salesplatform</module>
     <module>validation</module>
     <module>payment</module>
