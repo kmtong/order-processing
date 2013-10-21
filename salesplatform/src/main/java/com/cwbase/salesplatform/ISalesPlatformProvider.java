@@ -12,6 +12,13 @@ package com.cwbase.salesplatform;
 public interface ISalesPlatformProvider {
 
 	/**
+	 * Indicate this extension is interested in.
+	 * 
+	 * @return
+	 */
+	String getSalesPlatformID();
+
+	/**
 	 * Sales Order Format Parser / Converter
 	 * 
 	 * @return

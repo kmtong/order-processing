@@ -12,6 +12,22 @@
   <packaging>bundle</packaging>
   <name>Order Dispatcher Bundle</name>
   <inceptionYear>2013</inceptionYear>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.camel</groupId>
+  		<artifactId>camel-core</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.camel</groupId>
+  		<artifactId>camel-blueprint</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.cwbase</groupId>
+  		<artifactId>salesplatform</artifactId>
+  		<version>1.0.0</version>
+  	</dependency>
+  </dependencies>
   <build>
     <plugins>
         <plugin>

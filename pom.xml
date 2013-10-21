@@ -23,17 +23,20 @@
   <modules>
     <module>model</module>
     <module>salesplatform</module>
+<!--
     <module>validation</module>
     <module>payment</module>
     <module>warehouse</module>
     <module>packaging</module>
     <module>logistic</module>
+-->
     <module>dispatcher</module>
   </modules>
 
   <properties>
     <activemq-version>5.8.0</activemq-version>
-    <camel-version>2.12.1</camel-version>
+    <!--camel-version>2.12.1</camel-version-->
+    <camel-version>2.10.6</camel-version>
     <cxf-version>2.7.7</cxf-version>
     <hsqldb-version>1.8.0.10</hsqldb-version>
     <junit-version>4.11</junit-version>
@@ -170,6 +173,12 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-core</artifactId>
+        <version>${camel-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-blueprint</artifactId>
         <version>${camel-version}</version>
       </dependency>
 

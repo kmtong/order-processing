@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+	<reference-list id="salesPlatformRefs"
+		interface="com.cwbase.salesplatform.ISalesPlatformProvider"
+		availability="optional" />
+
+	<bean id="salesPlatformProcessor" class="com.cwbase.dispatcher.SalesPlatformProcessor">
+		<property name="salesPlatformProviders" ref="salesPlatformRefs" />
+	</bean>
+
+	<camelContext xmlns="http://camel.apache.org/schema/blueprint">
+		<route>
+			<from uri="timer:test?period=10000" />
+			<split>
+				<method bean="salesPlatformProcessor" method="processSplit" />
+				<to uri="log:test" />
+			</split>
+		</route>
+	</camelContext>
+
+</blueprint>

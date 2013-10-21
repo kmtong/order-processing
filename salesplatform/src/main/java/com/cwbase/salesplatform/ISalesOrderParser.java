@@ -24,13 +24,6 @@ import com.cwbase.model.Order;
 public interface ISalesOrderParser {
 
 	/**
-	 * Indicate the order this extension is interested in.
-	 * 
-	 * @return
-	 */
-	String getSalesPlatformID();
-
-	/**
 	 * Parse the raw order files, and convert into individual orders.
 	 * 
 	 * @param rawOrders
