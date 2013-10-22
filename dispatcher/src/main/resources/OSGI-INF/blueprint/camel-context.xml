@@ -10,10 +10,22 @@
 	</bean>
 
 	<camelContext xmlns="http://camel.apache.org/schema/blueprint">
+
+		<!-- DEMO File Inbox -->
 		<route>
-			<from uri="timer:test?period=10000" />
+			<from uri="file:order.demo.inbox" />
+			<setHeader headerName="SalesPlatformID">
+				<constant>1</constant>
+			</setHeader>
+			<to uri="seda:order.inbox" />
+		</route>
+
+		<!-- Central Internal Inbox (with correct "SalesPlatformID" header set) -->
+		<route>
+			<from uri="seda:order.inbox" />
 			<split>
 				<method bean="salesPlatformProcessor" method="processSplit" />
+				<to uri="bean:salesPlatformProcessor?method=processParse" />
 				<to uri="log:test" />
 			</split>
 		</route>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+	<service id="demo-sales-platform" interface="com.cwbase.salesplatform.ISalesPlatformProvider">
+		<bean class="com.cwbase.platform.demo.DemoSalesPlatformProvider" />
+	</service>
+</blueprint>

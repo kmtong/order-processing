@@ -31,6 +31,9 @@
     <module>logistic</module>
 -->
     <module>dispatcher</module>
+
+    <!-- Service Providers -->
+    <module>spi</module>
   </modules>
 
   <properties>

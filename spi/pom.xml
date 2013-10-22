@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+      <groupId>com.cwbase</groupId>
+      <artifactId>order-processing</artifactId>
+      <version>1.0.0</version>
+  </parent>
+
+  <artifactId>spi</artifactId>
+  <packaging>pom</packaging>
+  <name>Order Process Service Provider</name>
+  <inceptionYear>2013</inceptionYear>
+
+  <modules>
+    <!-- demo sales platform -->
+    <module>demo-sales-platform</module>
+  </modules>
+
+</project>
