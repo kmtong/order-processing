@@ -1,5 +1,6 @@
 package com.cwbase.dispatcher;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
@@ -51,18 +52,27 @@ public class SalesPlatformProcessor {
 	 * @param headers
 	 * @param rawOrder
 	 * @return
+	 * @throws MalformedURLException
 	 */
 	public Order processParse(@Headers Map<String, String> headers,
-			@Body String rawOrder) {
+			@Body String rawOrder) throws MalformedURLException {
+
 		String salesPlatformID = headers.get(SALES_PLATFORM_ID_HEADER);
+		String rawOrderSource = headers
+				.get(OrderURLEnrichStrategy.ORDER_URL_HEADER);
+
 		ISalesPlatformProvider p = getSalesPlatformProvider(salesPlatformID);
 		if (p == null) {
 			throw new RuntimeException(
 					"No Support Plugin to Support SalesPlatformID: "
 							+ salesPlatformID);
 		}
-		// XXX save to raw order repository
-		URL rawOrderSourceURL = null;
+
+		// save to raw order repository
+		URL rawOrderSourceURL = (rawOrderSource != null && rawOrderSource
+				.trim().length() > 0) ? new URL(rawOrderSource) : null;
+
+		System.out.println("URL: " + rawOrderSourceURL);
 		return p.getOrderParser().extract(rawOrder, rawOrderSourceURL);
 	}
 

@@ -9,6 +9,8 @@
 		<property name="salesPlatformProviders" ref="salesPlatformRefs" />
 	</bean>
 
+	<bean id="orderURLEnrichStrategy" class="com.cwbase.dispatcher.OrderURLEnrichStrategy" />
+
 	<camelContext xmlns="http://camel.apache.org/schema/blueprint">
 
 		<!-- DEMO File Inbox -->
@@ -25,9 +27,19 @@
 			<from uri="seda:order.inbox" />
 			<split>
 				<method bean="salesPlatformProcessor" method="processSplit" />
+				<enrich uri="direct:order.archival" strategyRef="orderURLEnrichStrategy" />
 				<to uri="bean:salesPlatformProcessor?method=processParse" />
 				<to uri="log:test" />
 			</split>
+		</route>
+
+		<!-- Single Raw Order Archival Process -->
+		<route>
+			<from uri="direct:order.archival" />
+			<!-- can call WebServices to store the raw data, response return the URL -->
+			<setBody>
+				<constant>file://simulate.return.url</constant>
+			</setBody>
 		</route>
 	</camelContext>
 
