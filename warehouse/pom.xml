@@ -12,6 +12,15 @@
   <packaging>bundle</packaging>
   <name>Warehouse API Bundle</name>
   <inceptionYear>2013</inceptionYear>
+  
+  <dependencies>
+      <dependency>
+          <groupId>com.cwbase</groupId>
+          <artifactId>model</artifactId>
+          <version>1.0.0</version>
+      </dependency>
+  </dependencies>
+  
   <build>
     <plugins>
         <plugin>
