@@ -24,9 +24,9 @@
     <module>model</module>
     <module>salesplatform</module>
     <module>warehouse</module>
-<!--
     <module>validation</module>
     <module>payment</module>
+<!--
     <module>packaging</module>
     <module>logistic</module>
 -->
